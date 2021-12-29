@@ -6,14 +6,14 @@ public class EmpComputation {
 	public static final int SALARY_PER_HR = 20;
 	public static final int IS_PART_TIME = 2;
 	public static final int NO_OF_DAYS = 20;
+	public static final int MAX_HR_IN_MONTH = 100;
 
 	public static void employeeAttendace() {
-
 		int Working_Hr = 0;
-		int empwage = 0;
-		int Totalempwage = 0;
-
-		for (int day = 0; day < NO_OF_DAYS; day++) {
+		int TotalEmpHrs = 0;
+		int TotalEmpWorkingDay = 0;
+		while (TotalEmpHrs <= MAX_HR_IN_MONTH && TotalEmpWorkingDay < NO_OF_DAYS) {
+			TotalEmpWorkingDay++;
 			int empCheck = (int) Math.floor((Math.random() * 10) % 3);
 
 			switch (empCheck) {
@@ -26,12 +26,12 @@ public class EmpComputation {
 			default:
 				Working_Hr = 0;
 			}
-			empwage = Working_Hr * SALARY_PER_HR;
-			Totalempwage += empwage;
-			System.out.println("Emp Wage :  " + empwage);
+			TotalEmpHrs += Working_Hr;
+			System.out.println("Day :  " + TotalEmpWorkingDay + "   Emp Hr : " + Working_Hr);
 		}
+		int totalEmpWage = TotalEmpHrs * SALARY_PER_HR;
 
-		System.out.println("Total Emp Wage : " + Totalempwage);
+		System.out.println("Total Emp Wage : " + totalEmpWage);
 	}
 
 	public static void main(String[] args) {
